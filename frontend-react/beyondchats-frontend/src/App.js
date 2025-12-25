@@ -5,7 +5,11 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+// const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
+
+  //this is the sevice where i deployed backend it was giving me error and because of short time i hardcoded it here
+  const API_BASE_URL = "https://beyondchats-fullstack-assignment.onrender.com";
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/articles`)
