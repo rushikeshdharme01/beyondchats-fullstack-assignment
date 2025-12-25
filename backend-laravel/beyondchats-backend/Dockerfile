@@ -38,3 +38,6 @@ RUN chown -R www-data:www-data /var/www/html \
 COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
+
+# 🔥 RUN MIGRATIONS THEN START APACHE
+CMD php artisan migrate --force && apache2-foreground
