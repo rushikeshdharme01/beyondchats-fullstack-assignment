@@ -143,9 +143,8 @@ npm start
 
 🌐 Live Links
 
-Frontend (React): Netlify deployment (to be added)
-
-Backend (API): Localhost (development)
+Frontend: https://fullstack-and-ai-content-sytem.netlify.app/
+Backend API: https://beyondchats-fullstack-assignment.onrender.com/
 
 
 ⚖️ Trade-offs & Design Decisions
