@@ -5,22 +5,26 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/articles")
+    fetch(`${API_BASE_URL}/api/articles`)
       .then((res) => res.json())
       .then((data) => {
         setArticles(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
-  }, []);
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [API_BASE_URL]);
 
   return (
     <div className="container">
       <h1>BeyondChats Articles</h1>
 
       {loading && <p>Loading articles...</p>}
-
       {!loading && articles.length === 0 && (
         <p>No articles found.</p>
       )}
@@ -41,11 +45,7 @@ function App() {
             </p>
 
             {article.source_url && (
-              <a
-                href={article.source_url}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={article.source_url} target="_blank" rel="noreferrer">
                 Read Original
               </a>
             )}
